@@ -9,14 +9,7 @@ import javax.inject.Singleton
 
 @Singleton
 class OrdersApi @Inject constructor(private val ordersService: OrdersService){
-    fun getOrders(
-             id: Int,
-             startAddress: String,
-             endAddress: String,
-             price: String,
-             orderTime: String,
-             vehicle: Vehicle
-    ): Single<Order> {
+    fun getOrders(): Single<Order> {
         return ordersService.getOrders()
     }
 }

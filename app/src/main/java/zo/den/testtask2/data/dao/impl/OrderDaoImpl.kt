@@ -21,14 +21,10 @@ class OrdersDaoImpl @Inject constructor(): OrderDao {
     }
 
     override fun getOrders(): Observable<OrderDto> {
-        return orderDao.getOrders().flatMap { ordersApi.getOrders(
-                it.id,
-                it.startAddress,
-                it.endAddress,
-                it.price,
-                it.orderTime,
-                it.vehicle
-        ) }
+        return orderDao.getOrders()
+                .flatMapSingle{ordersApi.getOrders()}
+                .map(OrderDtoMapper())
 
     }
+
 }

@@ -12,4 +12,8 @@ class EndAddress {
     @Expose
     var address: String? = null
 
+    override fun toString(): String {
+        return city+" "+address
+    }
+
 }
