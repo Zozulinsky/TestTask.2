@@ -11,5 +11,5 @@ interface OrdersService {
     fun getOrders() : Single<Order>
 
     @GET("images/{imageName}")
-    fun getImageAuto(@Path("imageName")imageName: String)
+    fun getImageAuto(@Path("imageName")imageName: String): Bitmap
 }

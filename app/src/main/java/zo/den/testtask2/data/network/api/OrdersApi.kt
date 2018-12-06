@@ -12,5 +12,9 @@ class OrdersApi @Inject constructor(private val ordersService: OrdersService){
     fun getOrders(): Single<Order> {
         return ordersService.getOrders()
     }
+    fun getImageAuto(url: String): Single<Order> {
+
+        return ordersService.getImageAuto(url)
+    }
 
 }
