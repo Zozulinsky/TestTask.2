@@ -2,9 +2,8 @@ package zo.den.testtask2.data.dao.impl
 
 import io.reactivex.Observable
 import zo.den.testtask2.data.dao.OrderDao
-import zo.den.testtask2.data.dto.OrderDto
-import zo.den.testtask2.data.mapper.OrderDtoMapper
 import zo.den.testtask2.data.network.api.OrdersApi
+import zo.den.testtask2.data.network.pojo.orders.Order
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -13,17 +12,16 @@ class OrdersDaoImpl @Inject constructor(): OrderDao {
     @Inject
     lateinit var ordersApi: OrdersApi
 
-    @Inject
-    lateinit var orderDao: OrderDao
-
-    override fun getOrder(id: Int?): Observable<OrderDto> {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
-
-    override fun getOrders(): Observable<OrderDto> {
-        return orderDao.getOrders()
-                .flatMapSingle{ordersApi.getOrders()}
-                .map(OrderDtoMapper())
+    override fun getOrders(): Observable<Order> {
+        return ordersApi.getOrders()
+                .flatMapObservable {
+                    it.orders.let { list->
+                        if (list!=null)
+                            Observable.fromIterable(list)
+                        else
+                            Observable.empty<Order>()
+                    }
+                }
 
     }
 

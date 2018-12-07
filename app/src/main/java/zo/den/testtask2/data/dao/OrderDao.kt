@@ -1,9 +1,8 @@
 package zo.den.testtask2.data.dao
 
 import io.reactivex.Observable
-import zo.den.testtask2.data.dto.OrderDto
+import zo.den.testtask2.data.network.pojo.orders.Order
 
 interface OrderDao {
-    fun getOrder(id: Int?): Observable<OrderDto>
-    fun getOrders(): Observable<OrderDto>
+    fun getOrders(): Observable<Order>
 }
