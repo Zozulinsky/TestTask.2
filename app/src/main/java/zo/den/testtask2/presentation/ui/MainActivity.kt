@@ -1,8 +1,9 @@
-package zo.den.testtask2.presentation
+package zo.den.testtask2.presentation.ui
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import com.arellomobile.mvp.presenter.InjectPresenter
+import com.arellomobile.mvp.presenter.ProvidePresenter
 import ru.terrakok.cicerone.Navigator
 import ru.terrakok.cicerone.NavigatorHolder
 import zo.den.testtask2.R
@@ -29,6 +30,9 @@ class MainActivity :  DiMoxyActivity(), MainView {
     lateinit var presenterProvider: Provider<MainPresenter>
     @InjectPresenter
     lateinit var presenter: MainPresenter
+
+    @ProvidePresenter
+    fun providePresenter(): MainPresenter = presenterProvider.get()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

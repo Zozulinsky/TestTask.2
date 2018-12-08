@@ -1,4 +1,4 @@
-package zo.den.testtask2.presentation.ui
+package zo.den.testtask2.presentation.ui.order
 
 import javax.inject.Qualifier
 

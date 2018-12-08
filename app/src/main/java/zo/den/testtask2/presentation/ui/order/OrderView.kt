@@ -1,4 +1,4 @@
-package zo.den.testtask2.presentation.ui
+package zo.den.testtask2.presentation.ui.order
 
 import com.arellomobile.mvp.viewstate.strategy.AddToEndSingleStrategy
 import com.arellomobile.mvp.viewstate.strategy.StateStrategyType

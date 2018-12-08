@@ -1,4 +1,4 @@
-package zo.den.testtask2.presentation.adapter
+package zo.den.testtask2.presentation.ui.adapter
 
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
