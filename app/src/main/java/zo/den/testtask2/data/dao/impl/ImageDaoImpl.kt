@@ -12,7 +12,7 @@ class ImageDaoImpl : ImageDao {
 
     lateinit var ordersApi: OrdersApi
 
-    fun getImage(path: String): Single<Bitmap> {
+    override fun getImage(path: String): Single<Bitmap> {
         val bmp = bitmapLruCache.get(path)
         return if(bmp==null || bmp.isRecycled){
             ordersApi.getImageAuto(path).doOnSuccess {

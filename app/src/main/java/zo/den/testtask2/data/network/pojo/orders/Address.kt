@@ -3,7 +3,7 @@ package zo.den.testtask2.data.network.pojo.orders
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
-class EndAddress {
+class Address {
 
     @SerializedName("city")
     @Expose
@@ -11,9 +11,5 @@ class EndAddress {
     @SerializedName("address")
     @Expose
     var address: String? = null
-
-    override fun toString(): String {
-        return city+" "+address
-    }
 
 }

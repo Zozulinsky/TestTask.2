@@ -10,10 +10,10 @@ class Order {
     var id: Int? = null
     @SerializedName("startAddress")
     @Expose
-    var startAddress: StartAddress? = null
+    var startAddress: Address? = null
     @SerializedName("endAddress")
     @Expose
-    var endAddress: EndAddress? = null
+    var endAddress: Address? = null
     @SerializedName("price")
     @Expose
     var price: Price? = null
