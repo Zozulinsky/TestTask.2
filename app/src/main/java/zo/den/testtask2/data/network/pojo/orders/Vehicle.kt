@@ -13,7 +13,7 @@ class Vehicle {
     var modelName: String? = null
     @SerializedName("photo")
     @Expose
-    var photo: String? = null
+    var photo: String = ""
     @SerializedName("driverName")
     @Expose
     var driverName: String? = null

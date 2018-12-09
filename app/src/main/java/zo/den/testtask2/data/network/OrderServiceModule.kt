@@ -10,7 +10,7 @@ import zo.den.testtask2.data.DataQulifier
 import zo.den.testtask2.data.network.service.OrdersService
 
 @Module
-class OrderModule {
+class OrderServiceModule {
 
     @Provides
     @DataQulifier("baseURL")

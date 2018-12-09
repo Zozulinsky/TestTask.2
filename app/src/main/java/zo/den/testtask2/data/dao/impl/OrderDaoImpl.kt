@@ -8,19 +8,14 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class OrdersDaoImpl @Inject constructor(): OrderDao {
+class OrdersDaoImpl @Inject constructor() : OrderDao {
     @Inject
     lateinit var ordersApi: OrdersApi
 
     override fun getOrders(): Observable<Order> {
         return ordersApi.getOrders()
                 .flatMapObservable {
-                    it.orders.let { list->
-                        if (list!=null)
-                            Observable.fromIterable(list)
-                        else
-                            Observable.empty<Order>()
-                    }
+                    Observable.fromIterable(it)
                 }
 
     }

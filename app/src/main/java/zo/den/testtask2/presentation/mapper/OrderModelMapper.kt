@@ -10,7 +10,8 @@ class OrderModelMapper : Function<Order, OrderModel> {
     override fun apply(t: Order): OrderModel {
         val startAddress: String? = t.startAddress?.city + " " + t.startAddress?.address
         val endAddress: String? = t.endAddress?.city + " " + t.endAddress?.address
-        val dateOfOrder = SimpleDateFormat("MMM dd HH:mm:ss z yyyy").format(t.orderTime)
+        //TODO обработать дату
+        val dateOfOrder = t.orderTime
         val currency: Currency = Currency.getInstance(t.price?.currency)
         val amount: StringBuilder = StringBuilder()
         amount.append(t.price?.amount)
