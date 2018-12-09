@@ -20,7 +20,7 @@ class DetailsFragment : MoxyFragment(), DetailsView {
     }
 
     companion object {
-        private const val KEY_ORDER: String = ""
+        private const val KEY_ORDER: String = "ordermodel"
         fun getInstance(orderModel: OrderModel): DetailsFragment = DetailsFragment().also {
             it.arguments = Bundle().apply {
                 putParcelable(KEY_ORDER, orderModel)
@@ -30,7 +30,9 @@ class DetailsFragment : MoxyFragment(), DetailsView {
     }
 
     fun getOrderModel(): OrderModel {
-        return Bundle().getParcelable(KEY_ORDER)
+        //TODO исправить !!
+        var orderModel: OrderModel =this.arguments!!.getParcelable(KEY_ORDER)
+        return orderModel
     }
 
     override val layout: Int = R.layout.fragment_details
@@ -45,25 +47,27 @@ class DetailsFragment : MoxyFragment(), DetailsView {
     @InjectPresenter
     lateinit var presenter: DetailsPresenter
 
-    lateinit var detailsOfOrder: StringBuilder
+    @field:Inject
+    @field:DetailsQualifier
+    lateinit var detailsOfOrder: OrderModel
 
 
     override fun onViewPrepare(savedInstanceState: Bundle?) {
         super.onViewPrepare(savedInstanceState)
-        details.text = detailsOfOrder.toString()
-
+        var sb: StringBuilder = java.lang.StringBuilder(" ")
+        sb.append(
+                detailsOfOrder.startAddress + "\n"
+                        + detailsOfOrder.endAddress + "\n"
+                        + detailsOfOrder.dateOfOrder + "\n"
+                        + detailsOfOrder.amount + "\n"
+                        + detailsOfOrder.regNumber + "\n"
+                        + detailsOfOrder.modelName + "\n"
+                        + detailsOfOrder.driverName + "\n"
+        )
+        details.text = sb.toString()
     }
 
     override fun showDetailsOfOrder(order: OrderModel) {
-        detailsOfOrder.append(
-                order.startAddress + "\n"
-                        + order.endAddress + "\n"
-                        + order.dateOfOrder + "\n"
-                        + order.amount + "\n"
-                        + order.regNumber + "\n"
-                        + order.modelName + "\n"
-                        + order.driverName + "\n"
-        )
+        detailsOfOrder = order
     }
-
 }

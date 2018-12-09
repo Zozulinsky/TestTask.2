@@ -2,11 +2,11 @@ package zo.den.testtask2.presentation.ui.detailsoforder
 
 import android.support.v4.app.Fragment
 import ru.terrakok.cicerone.android.support.SupportAppScreen
-import zo.den.testtask2.presentation.ui.order.OrderFragment
+import zo.den.testtask2.presentation.model.OrderModel
 
-class DetailsScreen  : SupportAppScreen() {
+class DetailsScreen(var orderModel: OrderModel) : SupportAppScreen() {
     override fun getFragment(): Fragment {
-        return OrderFragment.getInstance()
+        return DetailsFragment.getInstance(orderModel)
     }
 
     override fun getScreenKey(): String {

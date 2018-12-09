@@ -18,7 +18,6 @@ class OrderFragment : MoxyFragment(), OrderView {
         fun getInstance(): OrderFragment = OrderFragment()
     }
 
-
     override val layout: Int = R.layout.fragment_orders
 
     @field:Inject
@@ -42,15 +41,10 @@ class OrderFragment : MoxyFragment(), OrderView {
             override fun onItemClick(orderModel: OrderModel) {
                 presenter.onOrder(orderModel)
             }
-
         }
-
-
     }
 
     override fun showOrderList(list: List<OrderModel>) {
         orderAdapter.list = list
-
     }
-
 }

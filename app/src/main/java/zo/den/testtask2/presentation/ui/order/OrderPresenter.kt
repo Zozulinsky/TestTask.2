@@ -11,6 +11,7 @@ import zo.den.testtask2.presentation.mapper.OrderModelMapper
 import zo.den.testtask2.presentation.model.OrderModel
 import zo.den.testtask2.presentation.ui.MainQualifier
 import javax.inject.Inject
+
 @InjectViewState
 class OrderPresenter @Inject constructor() : MoxyPresenter<OrderView>(){
     @field:Inject
@@ -35,7 +36,7 @@ class OrderPresenter @Inject constructor() : MoxyPresenter<OrderView>(){
     }
 
     fun onOrder(orderModel: OrderModel) {
-        router.navigateTo(ScreenFactory.getDetailsScreen())
+        router.navigateTo(ScreenFactory.getDetailsScreen(orderModel))
     }
 
 

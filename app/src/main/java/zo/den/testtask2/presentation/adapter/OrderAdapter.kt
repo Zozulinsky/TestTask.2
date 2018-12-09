@@ -6,9 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import kotlinx.android.synthetic.main.order.view.*
 import zo.den.testtask2.R
-import zo.den.testtask2.data.network.pojo.orders.Order
 import zo.den.testtask2.presentation.model.OrderModel
-
 
 class OrderAdapter : RecyclerView.Adapter<OrderAdapter.OrderViewHolder>() {
 
@@ -48,8 +46,6 @@ class OrderAdapter : RecyclerView.Adapter<OrderAdapter.OrderViewHolder>() {
                 listener?.onItemClick(orderModel)
             })
         }
-
-
     }
 
     interface OnItemClickListener {
