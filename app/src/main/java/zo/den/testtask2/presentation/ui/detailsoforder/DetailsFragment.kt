@@ -11,6 +11,8 @@ import kotlinx.android.synthetic.main.fragment_details.*
 import zo.den.testtask2.R
 import zo.den.testtask2.presentation.base.MoxyFragment
 import zo.den.testtask2.presentation.model.OrderModel
+import java.text.SimpleDateFormat
+import java.util.*
 import javax.inject.Inject
 import javax.inject.Provider
 
@@ -31,7 +33,7 @@ class DetailsFragment : MoxyFragment(), DetailsView {
 
     fun getOrderModel(): OrderModel {
         //TODO исправить !!
-        var orderModel: OrderModel =this.arguments!!.getParcelable(KEY_ORDER)
+        var orderModel: OrderModel = this.arguments!!.getParcelable(KEY_ORDER)
         return orderModel
     }
 
@@ -54,15 +56,18 @@ class DetailsFragment : MoxyFragment(), DetailsView {
 
     override fun onViewPrepare(savedInstanceState: Bundle?) {
         super.onViewPrepare(savedInstanceState)
-        var sb: StringBuilder = java.lang.StringBuilder(" ")
-        sb.append(
-                detailsOfOrder.startAddress + "\n"
-                        + detailsOfOrder.endAddress + "\n"
-                        + detailsOfOrder.dateOfOrder + "\n"
-                        + detailsOfOrder.amount + "\n"
-                        + detailsOfOrder.regNumber + "\n"
-                        + detailsOfOrder.modelName + "\n"
-                        + detailsOfOrder.driverName + "\n"
+        val sb: StringBuilder = java.lang.StringBuilder("")
+        val sdf = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssZ")
+        val sdf2 = SimpleDateFormat("HH:mm")
+        val date: Date = sdf.parse(detailsOfOrder.dateOfOrder)
+        val time: String = sdf2.format(date)
+        sb.append(detailsOfOrder.startAddress + "\n"
+                + detailsOfOrder.endAddress + "\n")
+        sb.append(time.toString() + "\n")
+        sb.append(detailsOfOrder.amount + "\n"
+                + detailsOfOrder.regNumber + "\n"
+                + detailsOfOrder.modelName + "\n"
+                + detailsOfOrder.driverName + "\n"
         )
         details.text = sb.toString()
     }

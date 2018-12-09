@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">TestTask.2</string>
+    <string name="startAddress"><b>Начальный адрес: \n</b></string>
+    <string name="endAddress"><b>Конечный адрес: \n</b></string>
+    <string name="amount"><b>Стоимость: \n</b></string>
+    <string name="dateOfOrder"><b>Дата заказа: \n</b></string>
+    <string name="timeOfOrder"><b> заказа: \n</b></string>
+
 </resources>

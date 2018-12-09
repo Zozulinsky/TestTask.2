@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import kotlinx.android.synthetic.main.order.view.*
 import zo.den.testtask2.R
 import zo.den.testtask2.presentation.model.OrderModel
+import java.text.SimpleDateFormat
+import java.util.*
 
 class OrderAdapter : RecyclerView.Adapter<OrderAdapter.OrderViewHolder>() {
 
@@ -40,7 +42,11 @@ class OrderAdapter : RecyclerView.Adapter<OrderAdapter.OrderViewHolder>() {
         fun bind(orderModel: OrderModel) {
             itemView.startAddress.text = orderModel.startAddress
             itemView.endAddress.text = orderModel.endAddress
-            itemView.dateOfOrder.text = orderModel.dateOfOrder
+            val sdf = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssZ")
+            val sdf2 = SimpleDateFormat("dd.MM.yyyy")
+            val date: Date = sdf.parse(orderModel.dateOfOrder)
+            val time: String = sdf2.format(date)
+            itemView.dateOfOrder.text = time
             itemView.amount.text = orderModel.amount
             itemView.setOnClickListener(View.OnClickListener {
                 listener?.onItemClick(orderModel)

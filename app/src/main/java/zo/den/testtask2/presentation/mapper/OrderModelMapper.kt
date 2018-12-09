@@ -11,13 +11,16 @@ class OrderModelMapper : Function<Order, OrderModel> {
     override fun apply(t: Order): OrderModel {
         val startAddress: String? = t.startAddress?.city + " " + t.startAddress?.address
         val endAddress: String? = t.endAddress?.city + " " + t.endAddress?.address
-        //TODO обработать дату
+        //обработка даты
         val dateOfOrder = t.orderTime
+
+        //обработка валюты
         val currency: Currency = Currency.getInstance(t.price?.currency)
         val amount: StringBuilder = StringBuilder()
         amount.append(t.price?.amount)
         amount.insert(amount.length - currency.defaultFractionDigits, ".")
         amount.append(" " + currency.getSymbol())
+
         val vehicle: Vehicle? = t?.vehicle
         val regNumber: String? = vehicle?.regNumber
         val modelName: String? = vehicle?.modelName
