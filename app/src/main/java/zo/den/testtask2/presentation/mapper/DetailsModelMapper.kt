@@ -1,15 +1,13 @@
 package zo.den.testtask2.presentation.mapper
 
-import android.graphics.Bitmap
 import io.reactivex.functions.Function
 import zo.den.testtask2.data.network.pojo.orders.Order
 import zo.den.testtask2.data.network.pojo.orders.Vehicle
-import zo.den.testtask2.presentation.model.DetailsModel
 import zo.den.testtask2.presentation.model.OrderModel
 import java.util.*
 
-class DetailsModelMapper: Function<Order, DetailsModel> {
-    override fun apply(t: Order): DetailsModel {
+class DetailsModelMapper: Function<Order, OrderModel> {
+    override fun apply(t: Order): OrderModel {
         val startAddress: String? = t.startAddress?.city + " " + t.startAddress?.address
         val endAddress: String? = t.endAddress?.city + " " + t.endAddress?.address
         //TODO обработать дату и время
@@ -23,9 +21,10 @@ class DetailsModelMapper: Function<Order, DetailsModel> {
         val regNumber: String? = vehicle?.regNumber
         val modelName: String? = vehicle?.modelName
         //TODO исправить !!
+        val photo: String = vehicle!!.photo
         val driverName: String? = vehicle?.driverName
 
-        return DetailsModel(startAddress, endAddress, dateAndTimeOfOrder,
-                amount.toString(), regNumber, modelName,  driverName)
+        return OrderModel(startAddress, endAddress, dateAndTimeOfOrder,
+                amount.toString(), regNumber, modelName, photo,  driverName)
     }
 }

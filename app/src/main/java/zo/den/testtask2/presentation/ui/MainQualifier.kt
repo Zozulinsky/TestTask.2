@@ -4,4 +4,4 @@ import javax.inject.Qualifier
 
 @Qualifier
 @Retention(AnnotationRetention.RUNTIME)
-annotation class MainQualififer(val name: String = "")
+annotation class MainQualifier(val name: String = "")

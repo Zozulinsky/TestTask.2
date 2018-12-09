@@ -13,16 +13,16 @@ import ru.terrakok.cicerone.android.support.SupportAppNavigator
 class MainModule {
 
     @Provides
-    @MainQualififer
+    @MainQualifier
     @MainScope
-    fun provideCicerone(@MainQualififer router: Router): Cicerone<Router> = Cicerone.create(router)
+    fun provideCicerone(@MainQualifier router: Router): Cicerone<Router> = Cicerone.create(router)
 
     @Provides
-    @MainQualififer
-    fun provideNavigatorHolder(@MainQualififer cicerone: Cicerone<Router>): NavigatorHolder = cicerone.navigatorHolder
+    @MainQualifier
+    fun provideNavigatorHolder(@MainQualifier cicerone: Cicerone<Router>): NavigatorHolder = cicerone.navigatorHolder
 
     @Provides
-    @MainQualififer
+    @MainQualifier
     fun provideNavigator(mainActivity: MainActivity): Navigator =
             SupportAppNavigator(mainActivity, mainActivity.containerId)
 

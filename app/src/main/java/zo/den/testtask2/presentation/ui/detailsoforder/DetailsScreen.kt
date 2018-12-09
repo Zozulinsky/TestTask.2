@@ -6,7 +6,7 @@ import zo.den.testtask2.presentation.ui.order.OrderFragment
 
 class DetailsScreen  : SupportAppScreen() {
     override fun getFragment(): Fragment {
-        return DetailsFragment.getInstance()
+        return OrderFragment.getInstance()
     }
 
     override fun getScreenKey(): String {

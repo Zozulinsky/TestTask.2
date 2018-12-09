@@ -6,7 +6,7 @@ import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
 import kotlinx.android.synthetic.main.fragment_orders.*
 import zo.den.testtask2.R
-import zo.den.testtask2.presentation.ui.order.adapter.OrderAdapter
+import zo.den.testtask2.presentation.adapter.OrderAdapter
 import zo.den.testtask2.presentation.base.MoxyFragment
 import zo.den.testtask2.presentation.model.OrderModel
 import javax.inject.Inject
@@ -38,6 +38,14 @@ class OrderFragment : MoxyFragment(), OrderView {
         super.onViewPrepare(savedInstanceState)
         orders_list.adapter = orderAdapter
         orders_list.layoutManager = LinearLayoutManager(context)
+        orderAdapter.listener = object : OrderAdapter.OnItemClickListener{
+            override fun onItemClick(orderModel: OrderModel) {
+                presenter.onOrder(orderModel)
+            }
+
+        }
+
+
     }
 
     override fun showOrderList(list: List<OrderModel>) {

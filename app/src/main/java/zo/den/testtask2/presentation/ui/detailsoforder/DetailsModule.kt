@@ -1,13 +1,12 @@
 package zo.den.testtask2.presentation.ui.detailsoforder
 
-import android.widget.TextView
 import dagger.Module
 import dagger.Provides
-import zo.den.testtask2.presentation.ui.order.adapter.OrderAdapter
+import zo.den.testtask2.presentation.model.OrderModel
 
 @Module
 class DetailsModule {
     @Provides
     @DetailsQualifier
-    fun provideDetails(): String = ""
+    fun provideDetails(detailsFragment: DetailsFragment): OrderModel = detailsFragment.getOrderModel()
 }
