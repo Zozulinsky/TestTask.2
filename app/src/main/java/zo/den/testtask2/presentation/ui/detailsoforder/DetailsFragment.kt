@@ -56,20 +56,19 @@ class DetailsFragment : MoxyFragment(), DetailsView {
 
     override fun onViewPrepare(savedInstanceState: Bundle?) {
         super.onViewPrepare(savedInstanceState)
-        val sb: StringBuilder = java.lang.StringBuilder("")
+
         val sdf = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssZ")
         val sdf2 = SimpleDateFormat("HH:mm")
         val date: Date = sdf.parse(detailsOfOrder.dateOfOrder)
         val time: String = sdf2.format(date)
-        sb.append(detailsOfOrder.startAddress + "\n"
-                + detailsOfOrder.endAddress + "\n")
-        sb.append(time.toString() + "\n")
-        sb.append(detailsOfOrder.amount + "\n"
-                + detailsOfOrder.regNumber + "\n"
-                + detailsOfOrder.modelName + "\n"
-                + detailsOfOrder.driverName + "\n"
-        )
-        details.text = sb.toString()
+
+        startAddress.text = detailsOfOrder.startAddress
+        endAddress.text = detailsOfOrder.endAddress
+        timeOfOrder.text = time
+        amount.text = detailsOfOrder.amount
+        regNumber.text = detailsOfOrder.regNumber
+        modelAuto.text = detailsOfOrder.modelName
+        driver.text = detailsOfOrder.driverName
     }
 
     override fun showDetailsOfOrder(order: OrderModel) {

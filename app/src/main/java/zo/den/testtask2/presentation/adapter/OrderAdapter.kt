@@ -1,5 +1,9 @@
 package zo.den.testtask2.presentation.adapter
 
+import android.content.Context
+import android.content.res.Resources
+import android.provider.Settings.System.getString
+import android.support.v4.content.res.TypedArrayUtils.getText
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -40,12 +44,13 @@ class OrderAdapter : RecyclerView.Adapter<OrderAdapter.OrderViewHolder>() {
         : RecyclerView.ViewHolder(view){
 
         fun bind(orderModel: OrderModel) {
-            itemView.startAddress.text = orderModel.startAddress
-            itemView.endAddress.text = orderModel.endAddress
             val sdf = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssZ")
             val sdf2 = SimpleDateFormat("dd.MM.yyyy")
             val date: Date = sdf.parse(orderModel.dateOfOrder)
             val time: String = sdf2.format(date)
+
+            itemView.startAddress.text = orderModel.startAddress
+            itemView.endAddress.text = orderModel.endAddress
             itemView.dateOfOrder.text = time
             itemView.amount.text = orderModel.amount
             itemView.setOnClickListener(View.OnClickListener {

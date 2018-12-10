@@ -1,17 +1,105 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingRight="@dimen/paddingRight"
+    android:paddingLeft = "@dimen/paddingleft"
+    android:paddingTop= "@dimen/paddingTop">
+
 
    <TextView
-       android:id="@+id/details"
        android:layout_width="wrap_content"
-       android:layout_height="wrap_content" />
+       android:layout_height="wrap_content"
+       android:layout_weight="1"
+       android:text="@string/startAddress" />
+
+   <TextView
+       android:id="@+id/startAddress"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_weight="1" />
+
+   <TextView
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_weight="1"
+       android:text="@string/endAddress" />
+
+   <TextView
+       android:id="@+id/endAddress"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_weight="1" />
+
+   <TextView
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_weight="1"
+       android:text="@string/timeOfOrder" />
+
+   <TextView
+       android:id="@+id/timeOfOrder"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_weight="1" />
+
+   <TextView
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_weight="1"
+       android:text="@string/amount" />
+
+   <TextView
+       android:id="@+id/amount"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_weight="1" />
+
+   <TextView
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_weight="1"
+       android:text="@string/regNumber" />
+
+   <TextView
+       android:id="@+id/regNumber"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_weight="1" />
+
+   <TextView
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_weight="1"
+       android:text="@string/modelAuto" />
+
+   <TextView
+       android:id="@+id/modelAuto"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_weight="1" />
+   <TextView
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_weight="1"
+       android:text="@string/driver" />
+
+   <TextView
+       android:id="@+id/driver"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_weight="1" />
+
+   <TextView
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_weight="1"
+       android:text="@string/photoAuto" />
+
    <ImageView
        android:id="@+id/imageAuto"
        android:layout_width="wrap_content"
-       android:layout_height="wrap_content" />
+       android:layout_height="wrap_content"/>
 
 </LinearLayout>

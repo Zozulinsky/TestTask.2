@@ -1,9 +1,13 @@
 <resources>
-    <string name="app_name">TestTask.2</string>
-    <string name="startAddress"><b>Начальный адрес: \n</b></string>
-    <string name="endAddress"><b>Конечный адрес: \n</b></string>
-    <string name="amount"><b>Стоимость: \n</b></string>
-    <string name="dateOfOrder"><b>Дата заказа: \n</b></string>
-    <string name="timeOfOrder"><b> заказа: \n</b></string>
+    <string name="app_name">Заказы</string>
+    <string name="startAddress"><b>Начальный адрес: </b></string>
+    <string name="endAddress"><b>Конечный адрес: </b></string>
+    <string name="amount"><b>Стоимость: </b></string>
+    <string name="dateOfOrder"><b>Дата заказа: </b></string>
+    <string name="timeOfOrder"><b>Время заказа: </b></string>
+    <string name="regNumber"><b>Рег. номер авто: </b></string>
+    <string name="modelAuto"><b>Модель авто: </b></string>
+    <string name="driver"><b>Ф.И.О. водителя: </b></string>
+    <string name="photoAuto"><b>Фото авто: </b></string>
 
 </resources>
