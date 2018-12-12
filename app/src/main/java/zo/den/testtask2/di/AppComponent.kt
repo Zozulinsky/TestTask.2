@@ -23,7 +23,7 @@ import javax.inject.Singleton
             AppModule::class,
             AndroidSupportInjectionModule::class]
 )
-interface AppComponent : AndroidInjector<OrderApplication> {
+interface AppComponent : AndroidInjector<OrderApplication>  {
 
     @Component.Builder
     abstract class Builder : AndroidInjector.Builder<OrderApplication>(){

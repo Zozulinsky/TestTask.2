@@ -1,6 +1,7 @@
 package zo.den.testtask2.presentation.ui
 
 import android.os.Bundle
+import android.os.Parcel
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
 import ru.terrakok.cicerone.Navigator
@@ -10,7 +11,7 @@ import zo.den.testtask2.presentation.base.DiMoxyActivity
 import javax.inject.Inject
 import javax.inject.Provider
 
-class MainActivity :  DiMoxyActivity(), MainView {
+class MainActivity() :  DiMoxyActivity(), MainView {
 
     override val layout: Int = R.layout.activity_main
 
@@ -47,4 +48,5 @@ class MainActivity :  DiMoxyActivity(), MainView {
         navigatorHolder.removeNavigator()
         super.onPause()
     }
+
 }

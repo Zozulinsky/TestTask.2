@@ -24,8 +24,10 @@ class OrderModelMapper : Function<Order, OrderModel> {
         val vehicle: Vehicle? = t?.vehicle
         val regNumber: String? = vehicle?.regNumber
         val modelName: String? = vehicle?.modelName
-        //TODO исправить !!
-        val photo: String = vehicle!!.photo
+        var photo = ""
+        if (vehicle != null) {
+            photo = vehicle.photo
+        }
         val driverName: String? = vehicle?.driverName
 
         return OrderModel(startAddress, endAddress, dateOfOrder, amount.toString(), regNumber, modelName, photo,  driverName)

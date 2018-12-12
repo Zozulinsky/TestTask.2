@@ -1,26 +1,29 @@
 package zo.den.testtask2.data.dao.impl
 
+import android.app.Application
 import android.graphics.Bitmap
-import android.util.LruCache
 import io.reactivex.Single
-import zo.den.testtask2.data.cache.BitmapLruCache
+import zo.den.testtask2.data.cache.BitmapCache
 import zo.den.testtask2.data.dao.ImageDao
 import zo.den.testtask2.data.network.api.OrdersApi
 import javax.inject.Inject
 
-class ImageDaoImpl @Inject constructor() : ImageDao {
+class ImageDaoImpl
+    @Inject constructor(application: Application)  : ImageDao {
 
-    var bitmapLruCache: LruCache<String, Bitmap>? = null
+
+    var bitmapCache: BitmapCache = BitmapCache(application.applicationContext)
     @Inject
     lateinit var ordersApi: OrdersApi
 
     override fun getImage(path: String): Single<Bitmap> {
-        val bmp = bitmapLruCache?.get(path)
-        return if(bmp==null || bmp.isRecycled){
+
+        val bmp = bitmapCache?.load(path)
+        return if (bmp == null || bmp.isRecycled) {
             ordersApi.getImageAuto(path).doOnSuccess {
-                bitmapLruCache?.put(path, it)
+                bitmapCache.save(path, it)
             }
-        }else
+        } else
             Single.just(bmp)
     }
 }

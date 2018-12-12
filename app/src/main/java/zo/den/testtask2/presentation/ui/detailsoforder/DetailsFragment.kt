@@ -1,12 +1,9 @@
 package zo.den.testtask2.presentation.ui.detailsoforder
 
-import android.content.Intent
 import android.graphics.Bitmap
 import android.os.Bundle
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
-import dagger.Provides
-import kotlinx.android.synthetic.main.abc_activity_chooser_view.view.*
 import kotlinx.android.synthetic.main.fragment_details.*
 import zo.den.testtask2.R
 import zo.den.testtask2.presentation.base.MoxyFragment
@@ -32,8 +29,10 @@ class DetailsFragment : MoxyFragment(), DetailsView {
     }
 
     fun getOrderModel(): OrderModel {
-        //TODO исправить !!
-        var orderModel: OrderModel = this.arguments!!.getParcelable(KEY_ORDER)
+        var orderModel: OrderModel = OrderModel("","","","","","","","")
+        var bundle = this.arguments
+        if (bundle!=null)
+        orderModel = bundle.getParcelable(KEY_ORDER)
         return orderModel
     }
 
